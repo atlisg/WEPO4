@@ -1,7 +1,7 @@
 node_modules
 dist
 .tmp
+*.log
 .sass-cache
 app/bower_components
 test/bower_components
-.log
