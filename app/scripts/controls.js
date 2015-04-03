@@ -43,8 +43,8 @@ window.Controls = (function() {
 
     Controls.prototype._onKeyUp = function(e) {
         if (e.keyCode in KEYS) {
-            var keyName = KEYS[e.keyCode];
-            this.keys[keyName] = false;
+            //var keyName = KEYS[e.keyCode];
+            //this.keys[keyName] = false;
             return false;
         }
     };

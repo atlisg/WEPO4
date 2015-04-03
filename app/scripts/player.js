@@ -23,20 +23,17 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
+		SPEED = 30;
 	};
 
 	Player.prototype.onFrame = function(delta) {
-		if (Controls.keys.right) {
-			this.pos.x += delta * SPEED;
-		}
-		if (Controls.keys.left) {
-			this.pos.x -= delta * SPEED;
-		}
-		if (Controls.keys.down) {
-			this.pos.y += delta * SPEED;
-		}
-		if (Controls.keys.up) {
+		if (Controls._didJump) {
 			this.pos.y -= delta * SPEED;
+			SPEED -= 1;
+		}
+
+		if (Controls.keys.space) {
+			SPEED = 30;
 		}
 
 		this.checkCollisionWithBounds();
