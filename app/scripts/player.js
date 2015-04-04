@@ -6,7 +6,7 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 30; // * 10 pixels per second
+	var SPEED = 45; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
@@ -24,17 +24,17 @@ window.Player = (function() {
 	Player.prototype.reset = function() {
 		this.pos.x = INITIAL_POSITION_X;
 		this.pos.y = INITIAL_POSITION_Y;
-		SPEED = 30;
+		SPEED = 45;
 	};
 
 	Player.prototype.onFrame = function(delta) {
 		if (Controls._didJump) {
 			this.pos.y -= delta * SPEED;
-			SPEED -= 1;
+			SPEED -= 2;
 		}
 
 		if (Controls.keys.space) {
-			SPEED = 30;
+			SPEED = 45;
 		}
 
 		this.checkCollisionWithBounds();
