@@ -2,9 +2,19 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 5em;
-	height: 5em;
-	background: black;
+	width: 3.6em;
+	height: 5.1em;
+	background-image: url("/images/teiknimynd3.jpg");
+	background-color: darkred;
+}
+
+.Pipe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6em;
+	height: 30em;
+	background-color: green;
 }
 
 .Scoreboard {
@@ -60,5 +70,5 @@ height: 57.6em;
 margin-left: -51.2em;
 margin-top: -28.8em;
 overflow: hidden;
-background: red;
+background: skyblue;
 }

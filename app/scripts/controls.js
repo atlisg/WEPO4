@@ -28,7 +28,7 @@ window.Controls = (function() {
     };
 
     Controls.prototype._onKeyDown = function(e) {
-        // Only jump if space wasn't pressed.
+        // Only jump if space was pressed.
         if (e.keyCode === 32 && !this.keys.space) {
             this._didJump = true;
         }
@@ -43,8 +43,8 @@ window.Controls = (function() {
 
     Controls.prototype._onKeyUp = function(e) {
         if (e.keyCode in KEYS) {
-            //var keyName = KEYS[e.keyCode];
-            //this.keys[keyName] = false;
+            var keyName = KEYS[e.keyCode];
+            this.keys[keyName] = false;
             return false;
         }
     };
