@@ -61,6 +61,8 @@ window.Game = (function() {
 			this.pipes[i].onFrame(delta);
 			if (this.pipes[i].checkCollisionWithPlayer(this.player.pos)) {
 				this.gameover();
+			} else {
+				this.pipes[i].countScore();
 			}
 		}
 
@@ -88,13 +90,18 @@ window.Game = (function() {
 		for (var i = 0; i < this.pipes.length; i++) {
 			this.pipes[i].reset();
 		}
+		document.getElementById('Score').textContent = 0;
 	};
 	/**
 	 * Signals that the game is over.
 	 */
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
-
+		if (document.getElementById('HiScore').textContent <
+			document.getElementById('Score').textContent) {
+			document.getElementById('HiScore').textContent =
+			document.getElementById('Score').textContent;
+		}
 		// Should be refactored into a Scoreboard class.
 		var that = this;
 		var scoreboardEl = this.el.find('.Scoreboard');

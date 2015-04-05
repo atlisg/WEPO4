@@ -130,18 +130,27 @@
 	-webkit-transform: none;
 }
 .Scoreboard-restart {
-	margin-top: 20em;
+	margin-top: 0em;
 	font-size: inherit;
-	padding: 0.4em 1.5em;
+	padding: 0.4em 10em;
 	border: 0.2em solid white;
 	background: none;
 	cursor: pointer;
 }
+
+.Scoreboard-score {
+font-family: 'Verdana', serif;
+font-size: 1.8em;
+color: white;
+}
+
+
 .Scoreboard-restartText {
-font-family: 'Comic Sans MS', serif;
+font-family: 'Verdana', serif;
 font-size: 2.4em;
 color: white;
 }
+
 body {
 background: black;
 }
