@@ -7,8 +7,15 @@
 	background-image: url("/images/teiknimynd3.jpg");
 	background-color: darkred;
 }
-
-.Pipe {
+.Pipe1Upper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6em;
+	height: 10em;
+	background-color: green;
+}
+.Pipe1Lower {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -16,7 +23,54 @@
 	height: 30em;
 	background-color: green;
 }
-
+.Pipe2Upper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6em;
+	height: 20em;
+	background-color: darkgreen;
+}
+.Pipe2Lower {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6em;
+	height: 30em;
+	background-color: darkgreen;
+}
+.Pipe3Upper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6em;
+	height: 30em;
+	background-color: blue;
+}
+.Pipe3Lower {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6em;
+	height: 30em;
+	background-color: blue;
+}
+.Pipe4Upper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6em;
+	height: 15em;
+	background-color: darkblue;
+}
+.Pipe4Lower {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 6em;
+	height: 30em;
+	background-color: darkblue;
+}
 .Scoreboard {
 	position: absolute;
 	left: 50%;
@@ -30,14 +84,12 @@
 	-webkit-transform: translate(0, -40em);
 	-webkit-transition: -webkit-transform 0.5s;
 }
-
 /**
 * Reset transform to animate it into the correct spot on the screen.
 */
 .Scoreboard.is-visible {
 	-webkit-transform: none;
 }
-
 .Scoreboard-restart {
 	margin-top: 20em;
 	font-size: inherit;
