@@ -59,9 +59,9 @@ window.Game = (function() {
 		// and check if a pipe has gone off screen.
 		for (var i = 0; i < this.pipes.length; i++) {
 			this.pipes[i].onFrame(delta);
-			// if (this.pipes[i].checkCollisionWithPlayer(this.player.pos)) {
-			// 	this.gameover();
-			// }
+			if (this.pipes[i].checkCollisionWithPlayer(this.player.pos)) {
+				this.gameover();
+			}
 		}
 
 		// Request next frame.
