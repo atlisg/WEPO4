@@ -2,6 +2,7 @@
 window.Pipe = (function() {
 	'use strict';
 
+	var WORLD_WIDTH = 102.4;
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
 	var SPEED = 10; // * 10 pixels per second
@@ -11,11 +12,11 @@ window.Pipe = (function() {
 		this.game = game;
 		this.pos = { x: initX, y: initY };
 		this.initPos = { x: initX, y: initY };
+		console.log(this.initPos);
 		this.height = height;
 		this.width = width;
 		this.isUpper = upper;
 	};
-
 	/**
 	 * Resets the state of the player for a new game.
 	 */
@@ -25,8 +26,8 @@ window.Pipe = (function() {
 	};
 
 	Pipe.prototype.onFrame = function(delta) {
-		if (this.pos.x < -10) {
-			this.pos.x = this.initPos.x;
+		if (this.pos.x < -6) {
+			this.pos.x = WORLD_WIDTH;
 		}
 		this.pos.x -= delta * SPEED;
 		// Update UI

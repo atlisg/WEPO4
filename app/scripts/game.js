@@ -8,17 +8,21 @@ window.Game = (function() {
 	 * @constructor
 	 */
 	var Game = function(el) {
+		this.pipeCount = 4;
+		this.pipeWidth = 6;
+
+		this.pipeDist  = (this.WORLD_WIDTH/4)+(6/4);
 		this.el = el;
 		this.player   = new window.Player(this.el.find('.Player'), this);
 		this.pipes = [];
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Lower'), 180, 35, 30, 6, this, false));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Upper'), 180,  0, 15, 6, this, true ));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Lower'), 150, 50, 30, 6, this, false));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Upper'), 150,  0, 30, 6, this, true ));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe2Lower'), 130, 40, 30, 6, this, false));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe2Upper'), 130,  0, 20, 6, this, true ));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Lower'), 90,  30, 30, 6, this, false));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Upper'), 90,   0, 10, 6, this, true ));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Lower'), this.WORLD_WIDTH+this.pipeDist*3, 35, 30, 6, this, false));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Upper'), this.WORLD_WIDTH+this.pipeDist*3,  0, 15, 6, this, true ));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Lower'), this.WORLD_WIDTH+this.pipeDist*2, 50, 30, 6, this, false));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Upper'), this.WORLD_WIDTH+this.pipeDist*2,  0, 30, 6, this, true ));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe2Lower'), this.WORLD_WIDTH+this.pipeDist*1, 40, 30, 6, this, false));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe2Upper'), this.WORLD_WIDTH+this.pipeDist*1,  0, 20, 6, this, true ));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Lower'), this.WORLD_WIDTH+this.pipeDist*0, 30, 30, 6, this, false));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Upper'), this.WORLD_WIDTH+this.pipeDist*0,  0, 10, 6, this, true ));
 		console.log(this.pipes);
 		this.isPlaying  = false;
 
@@ -55,9 +59,9 @@ window.Game = (function() {
 		// and check if a pipe has gone off screen.
 		for (var i = 0; i < this.pipes.length; i++) {
 			this.pipes[i].onFrame(delta);
-			if (this.pipes[i].checkCollisionWithPlayer(this.player.pos)) {
-				this.gameover();
-			}
+			// if (this.pipes[i].checkCollisionWithPlayer(this.player.pos)) {
+			// 	this.gameover();
+			// }
 		}
 
 		// Request next frame.
