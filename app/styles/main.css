@@ -4,7 +4,14 @@
 	left: 0;
 	width: 3.1em;
 	height: 4.4em;
-	background-image: url("/images/teiknimynd3.jpg");
+	background-color: darkred;
+}
+.Player img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3.1em;
+	height: 4.4em;
 	background-color: darkred;
 }
 .Pipe1Upper {

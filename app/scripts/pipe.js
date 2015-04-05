@@ -6,13 +6,14 @@ window.Pipe = (function() {
 	// for 1024x576px canvas.
 	var SPEED = 10; // * 10 pixels per second
 
-	var Pipe = function(el, initX, initY, height, width, game) {
+	var Pipe = function(el, initX, initY, height, width, game, upper) {
 		this.el = el;
 		this.game = game;
 		this.pos = { x: initX, y: initY };
 		this.initPos = { x: initX, y: initY };
 		this.height = height;
 		this.width = width;
+		this.isUpper = upper;
 	};
 
 	/**
@@ -30,6 +31,14 @@ window.Pipe = (function() {
 		this.pos.x -= delta * SPEED;
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
+	};
+
+	Pipe.prototype.checkCollisionWithPlayer = function(playerPos) {
+		if (this.isUpper){
+			return (Math.abs(this.pos.x - playerPos.x) < (this.width / 2) && (playerPos.y < this.pos.y + this.height));
+		} else {
+			return (Math.abs(this.pos.x - playerPos.x) < (this.width / 2) && (playerPos.y + 5 > this.pos.y));
+		}
 	};
 
 	return Pipe;
