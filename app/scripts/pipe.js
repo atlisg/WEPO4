@@ -46,6 +46,7 @@ window.Pipe = (function() {
 				document.getElementById('Score').textContent++;
 				this.hasCounted = true;
 				console.log('INCREMENTING!!!');
+				document.getElementById('TaDaSound').play();
 			}
 		}
 	};

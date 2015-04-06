@@ -97,6 +97,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
+		document.getElementById('GameOverSound').play();
 		if (document.getElementById('HiScore').textContent <
 			document.getElementById('Score').textContent) {
 			document.getElementById('HiScore').textContent =
