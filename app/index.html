@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>html5 game new</title>
+        <title>Flappy Atli </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link rel="shortcut icon" href="/favicon.ico">
@@ -17,15 +17,21 @@
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
+        <audio id="TaDaSound" src="audio/TaDa.mp3"></audio>
+        <audio id="GameOverSound" src="audio/gameOver.mp3"></audio>
+        <audio id="GameOverSound" src="audio/unicorn.mp3" autoplay loop></audio>
         <!-- endbuild -->
     </head>
     <body>
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
         <div class="GameCanvas">
-            <div class="Player"></div>
+            <div class="Player">
+                <img src="/images/teiknimynd2.jpg" alt="">
+                <div class="Player-wings" id="Player-wings-left"></div>
+                <div class="Player-wings" id="Player-wings-right"></div>
+            </div>
 
             <div class="Pipe1Upper"></div>
             <div class="Pipe1Lower"></div>
@@ -40,6 +46,14 @@
             <div class="Pipe4Lower"></div>
 
             <div class="Scoreboard">
+                <div class="Scoreboard-score">
+                    <h3>SCORE:</h3>
+                    <h4 id="Score">0</h4>
+                </div>
+                <div   class="Scoreboard-score">
+                    <h3>HIGH SCORE:</h3>
+                    <h4 id="HiScore">0</h4 >
+                </div>
                 <button class="Scoreboard-restart">
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>
