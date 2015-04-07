@@ -10,7 +10,6 @@ window.Game = (function() {
 	var Game = function(el) {
 		this.pipeCount = 4;
 		this.pipeWidth = 6;
-
 		this.pipeDist  = (this.WORLD_WIDTH/4)+(6/4);
 		this.el = el;
 		this.player   = new window.Player(this.el.find('.Player'), this);

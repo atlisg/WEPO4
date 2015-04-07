@@ -46,6 +46,8 @@
   }
 }
 
+@keyframes jump{50%{transform: translate(100px, 100px);}}
+
 .Pipe1Upper {
 	position: absolute;
 	top: 0;
