@@ -8,20 +8,20 @@ window.Game = (function() {
 	 * @constructor
 	 */
 	var Game = function(el) {
-		this.pipeCount = 4;
 		this.pipeWidth = 6;
 		this.pipeDist  = (this.WORLD_WIDTH/4)+(6/4);
 		this.el = el;
 		this.player   = new window.Player(this.el.find('.Player'), this);
 		this.pipes = [];
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Lower'), this.WORLD_WIDTH+this.pipeDist*3, 35, 30, 6, this, false));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Upper'), this.WORLD_WIDTH+this.pipeDist*3,  0, 15, 6, this, true ));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Lower'), this.WORLD_WIDTH+this.pipeDist*2, 50, 30, 6, this, false));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Upper'), this.WORLD_WIDTH+this.pipeDist*2,  0, 30, 6, this, true ));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe2Lower'), this.WORLD_WIDTH+this.pipeDist*1, 40, 30, 6, this, false));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe2Upper'), this.WORLD_WIDTH+this.pipeDist*1,  0, 20, 6, this, true ));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Lower'), this.WORLD_WIDTH+this.pipeDist*0, 30, 30, 6, this, false));
-		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Upper'), this.WORLD_WIDTH+this.pipeDist*0,  0, 10, 6, this, true ));
+		this.floor = new window.Floor(this.el.find('#Floor'),0,this.WORLD_HEIGHT-(10.4/2) , 10.4, 3.95, this);
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Lower'), this.WORLD_WIDTH+this.pipeDist*3, 35, 30, this.pipeWidth, this, false));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Upper'), this.WORLD_WIDTH+this.pipeDist*3,  0, 15, this.pipeWidth, this, true ));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Lower'), this.WORLD_WIDTH+this.pipeDist*2, 30, 30, this.pipeWidth, this, false));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Upper'), this.WORLD_WIDTH+this.pipeDist*2,  0, 10, this.pipeWidth, this, true ));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe2Lower'), this.WORLD_WIDTH+this.pipeDist*1, 40, 30, this.pipeWidth, this, false));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe2Upper'), this.WORLD_WIDTH+this.pipeDist*1,  0, 20, this.pipeWidth, this, true ));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Lower'), this.WORLD_WIDTH+this.pipeDist*0, 30, 30, this.pipeWidth, this, false));
+		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Upper'), this.WORLD_WIDTH+this.pipeDist*0,  0, 10, this.pipeWidth, this, true ));
 		console.log(this.pipes);
 		this.isPlaying  = false;
 
@@ -29,6 +29,8 @@ window.Game = (function() {
 			window.innerWidth / 102.4,
 			window.innerHeight / 57.6
 		);
+		console.log(window.innerWidth  / 102.4);
+		console.log(window.innerHeight / 57.6);
 
 		el.css('fontSize', fontSize + 'px');
 
@@ -64,6 +66,7 @@ window.Game = (function() {
 				this.pipes[i].countScore();
 			}
 		}
+		this.floor.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -119,6 +122,8 @@ window.Game = (function() {
 	 */
 	Game.prototype.WORLD_WIDTH = 102.4;
 	Game.prototype.WORLD_HEIGHT = 57.6;
+	Game.prototype.FLOOR_WIDTH = 7.9;
+	Game.prototype.FLOOR_HEIGHT = 1.5;
 
 	return Game;
 })();

@@ -27,6 +27,10 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div class="GameCanvas">
+
+            <div class="Clouds"></div>
+
+
             <div class="Player">
                 <img src="/images/teiknimynd2.jpg" alt="">
                 <div class="Player-wings" id="Player-wings-left"></div>
@@ -58,6 +62,8 @@
                     <span class="Scoreboard-restartText">Restart</span>
                 </button>
             </div>
+            <div id="Floor"></div>
+
         </div>
 
         <!-- build:js scripts/vendor.js -->
@@ -73,6 +79,7 @@
         <script src="scripts/player.js"></script>
         <script src="scripts/utils.js"></script>
         <script src="scripts/pipe.js"></script>
+        <script src="scripts/floor.js"></script>
         <!-- endbuild -->
 </body>
 </html>
