@@ -6,18 +6,18 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 88; // * 10 pixels per second
+	var SPEED = 7; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
 	var INITIAL_POSITION_Y = 25;
-	var GRAVITY = 30;
+	var GRAVITY = 0.5;
 
 	var Player = function(el, game) {
 		this.el = el;
 		this.game = game;
 		this.isJumping = false;
-		this.JUMP_SPEED = SPEED;
+		this.JUMP_SPEED = SPEED-3;
 		this.WIDTH  = document.getElementsByClassName('Player').offsetWidth;
 		this.HEIGHT = document.getElementsByClassName('Player').offsetHeight;
 		this.jumped = false;
@@ -34,27 +34,25 @@ window.Player = (function() {
 		this.isJumping = false;
 	};
 
-	Player.prototype.onFrame = function(delta) {
+	Player.prototype.onFrame = function() {
 
-		this.pos.y += delta * GRAVITY;
+		this.pos.y += GRAVITY;
 		this.jumped = Controls.didJump();
 		if (this.jumped && !this.isJumping) {
 			this.isJumping = true;
 		} else if (this.jumped && this.isJumping) {
-			SPEED = (this.JUMP_SPEED)-10;
+			SPEED = (this.JUMP_SPEED);
 			return;
 		}
 
 		if (this.isJumping) {
-			this.pos.y -= delta * SPEED;
+			this.pos.y -= SPEED;
 			console.log(SPEED);
-			if ((SPEED -= 2) < 2) {
+			if ((SPEED -= 0.5) < 0) {
 				this.isJumping = false;
 				SPEED = this.JUMP_SPEED;
 			}
 		}
-
-		console.log(SPEED);
 		this.checkCollisionWithBounds();
 
 		// Update UI
