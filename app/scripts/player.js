@@ -37,6 +37,8 @@ window.Player = (function() {
 	Player.prototype.onFrame = function() {
 		if (this.game.hasStarted) {
 			this.pos.y += GRAVITY;
+		} else {
+			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 		}
 
 		this.jumped = Controls.didJump();
@@ -71,7 +73,9 @@ window.Player = (function() {
 				SPEED += 0.5;
 			else
 				SPEED = (this.JUMP_SPEED);
+			if (this.game.hasStarted) {
 			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + SPEED * 15 + 'deg)');
+		}
 		}
 		this.checkCollisionWithBounds();
 
