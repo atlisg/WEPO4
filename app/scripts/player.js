@@ -42,8 +42,13 @@ window.Player = (function() {
 		this.jumped = Controls.didJump();
 		if (this.jumped) {
 			this.game.hasStarted = true;
-			this.jumped = true;
 			SPEED = this.JUMP_SPEED;
+			var flap = document.getElementById('FlapSound');
+			if(!muted) {
+				flap.pause();
+				flap.currentTime = 0;
+				flap.play();
+			}
 		}
 
 		if (this.jumped && !this.isJumping) {

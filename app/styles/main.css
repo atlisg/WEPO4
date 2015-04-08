@@ -97,6 +97,7 @@
 	width: 6em;
 	height: 10em;
 	background-color: green;
+	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe1Lower {
 	position: absolute;
@@ -105,6 +106,7 @@
 	width: 6em;
 	height: 30em;
 	background-color: green;
+	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe2Upper {
 	position: absolute;
@@ -112,7 +114,8 @@
 	left: 0;
 	width: 6em;
 	height: 20em;
-	background-color: darkgreen;
+	background-color: skyblue;
+	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe2Lower {
 	position: absolute;
@@ -120,7 +123,8 @@
 	left: 0;
 	width: 6em;
 	height: 30em;
-	background-color: darkgreen;
+	background-color: skyblue;
+	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe3Upper {
 	position: absolute;
@@ -128,7 +132,8 @@
 	left: 0;
 	width: 6em;
 	height: 10em;
-	background-color: blue;
+	background-color: pink;
+	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe3Lower {
 	position: absolute;
@@ -136,7 +141,8 @@
 	left: 0;
 	width: 6em;
 	height: 30em;
-	background-color: blue;
+	background-color: pink;
+	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe4Upper {
 	position: absolute;
@@ -144,7 +150,8 @@
 	left: 0;
 	width: 6em;
 	height: 15em;
-	background-color: darkblue;
+	background-color: yellow;
+	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe4Lower {
 	position: absolute;
@@ -152,7 +159,8 @@
 	left: 0;
 	width: 6em;
 	height: 30em;
-	background-color: darkblue;
+	background-color: yellow;
+	border: 0.1em solid rgb(200,200,200);
 }
 .Scoreboard {
 	position: absolute;
@@ -215,5 +223,5 @@ body {
 	margin-left: -51.2em;
 	margin-top: -28.8em;
 	overflow: hidden;
-	background: skyblue;
+	background: rgb(30,30,30);
 }

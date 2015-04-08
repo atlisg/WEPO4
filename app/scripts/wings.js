@@ -4,7 +4,7 @@ window.Wings = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 250; // * 10 pixels per second
+	var SPEED = 350; // * 10 pixels per second
 
 	var Wings = function(el1, el2, game) {
 		this.left = el1;
