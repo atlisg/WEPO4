@@ -20,7 +20,7 @@
 	top: 0.4em;
 	height: 0.5em;
 	width: 1em;
-	//background: black;
+	/*background: black;*/
 	-webkit-transform: translateZ(0);
 	-webkit-transform-origin: top left;
 }
@@ -29,7 +29,7 @@
 	left: -2.99em;
 	top: 0.4em;
 	z-index: 0;
-	animation: 0.4s flap-l alternate infinite;
+	/*animation: 0.4s flap-l alternate infinite;*/
 	-webkit-transform-origin: right;
 }
 
@@ -37,7 +37,7 @@
 	left: 2.8em;
 	top: 0.4em;
 	z-index: 0;
-	animation: 0.4s flap-r alternate infinite;
+	/*animation: 0.4s flap-r alternate infinite;*/
 }
 
 @-webkit-keyframes flap-r {
