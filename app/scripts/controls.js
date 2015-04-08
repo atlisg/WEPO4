@@ -78,7 +78,6 @@ window.Controls = (function() {
 	Controls.prototype.didJump = function() {
 		var answer = this._didJump;
 		this._didJump = false;
-		if (answer) {console.log('Answering:' + answer);}
 		return answer;
 	};
 

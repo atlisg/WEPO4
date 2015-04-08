@@ -1,7 +1,7 @@
 
 window.Game = (function() {
 	'use strict';
-
+var Controls = window.Controls;
 	/**
 	 * Main game class.
 	 * @param {Element} el jQuery element containing the game.
@@ -15,6 +15,7 @@ window.Game = (function() {
 		this.pipes = [];
 		this.floor = new window.Floor(this.el.find('#Floor'),0,this.WORLD_HEIGHT-(10.4/2) , 10.4, 3.95, this);
 		this.clouds = new window.Clouds(this.el.find('.Clouds'), 0, 5, 14, this);
+		this.wings = new window.Wings(this.el.find('#Player-wings-left'), this.el.find('#Player-wings-right'), this);
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Lower'), this.WORLD_WIDTH+this.pipeDist*3, 35, 30, this.pipeWidth, this, false));
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Upper'), this.WORLD_WIDTH+this.pipeDist*3,  0, 15, this.pipeWidth, this, true ));
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Lower'), this.WORLD_WIDTH+this.pipeDist*2, 30, 30, this.pipeWidth, this, false));
@@ -23,17 +24,25 @@ window.Game = (function() {
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe2Upper'), this.WORLD_WIDTH+this.pipeDist*1,  0, 20, this.pipeWidth, this, true ));
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Lower'), this.WORLD_WIDTH+this.pipeDist*0, 30, 30, this.pipeWidth, this, false));
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Upper'), this.WORLD_WIDTH+this.pipeDist*0,  0, 10, this.pipeWidth, this, true ));
-		console.log(this.pipes);
 		this.isPlaying  = false;
+		this.hasStarted = false;
 
 		var fontSize = Math.min(
 			window.innerWidth / 102.4,
 			window.innerHeight / 57.6
 		);
-		console.log(window.innerWidth  / 102.4);
-		console.log(window.innerHeight / 57.6);
 
 		el.css('fontSize', fontSize + 'px');
+
+		this.toggleMute = function() {
+			if(!this.muted) {
+				$('.Mute').show();
+				$('.UnMute').hide();
+			} else {
+				$('.Mute').hide();
+				$('.UnMute').show();
+			}
+		};
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -69,6 +78,7 @@ window.Game = (function() {
 		}
 		this.floor.onFrame(delta);
 		this.clouds.onFrame(delta);
+		this.wings.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
@@ -101,6 +111,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
+		this.hasStarted = false;
 		document.getElementById('GameOverSound').play();
 		if (document.getElementById('HiScore').textContent <
 			document.getElementById('Score').textContent) {
@@ -115,6 +126,7 @@ window.Game = (function() {
 			.find('.Scoreboard-restart')
 				.one('click', function() {
 					scoreboardEl.removeClass('is-visible');
+					Controls._didJump = false;
 					that.start();
 				});
 	};
@@ -126,6 +138,6 @@ window.Game = (function() {
 	Game.prototype.WORLD_HEIGHT = 57.6;
 	Game.prototype.FLOOR_WIDTH = 7.9;
 	Game.prototype.FLOOR_HEIGHT = 1.5;
-
+	Game.prototype.Muted = false;
 	return Game;
 })();
