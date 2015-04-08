@@ -1,7 +1,6 @@
-
 window.Game = (function() {
 	'use strict';
-var Controls = window.Controls;
+	var Controls = window.Controls;
 	/**
 	 * Main game class.
 	 * @param {Element} el jQuery element containing the game.
@@ -26,7 +25,6 @@ var Controls = window.Controls;
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Upper'), this.WORLD_WIDTH+this.pipeDist*0,  0, 10, this.pipeWidth, this, true ));
 		this.isPlaying  = false;
 		this.hasStarted = false;
-		this.muted = false;
 
 		var fontSize = Math.min(
 			window.innerWidth / 102.4,
@@ -34,10 +32,6 @@ var Controls = window.Controls;
 		);
 
 		el.css('fontSize', fontSize + 'px');
-
-		this.toggleMute = function() {
-
-		};
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -107,8 +101,7 @@ var Controls = window.Controls;
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		this.hasStarted = false;
-		console.log(this.muted);
-		if (!this.muted) {
+		if (!muted) {
 			document.getElementById('GameOverSound').play();
 		}
 		if (document.getElementById('HiScore').textContent <
@@ -136,6 +129,5 @@ var Controls = window.Controls;
 	Game.prototype.WORLD_HEIGHT = 57.6;
 	Game.prototype.FLOOR_WIDTH = 7.9;
 	Game.prototype.FLOOR_HEIGHT = 1.5;
-	Game.prototype.Muted = false;
 	return Game;
 })();
