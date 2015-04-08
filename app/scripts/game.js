@@ -26,6 +26,7 @@ var Controls = window.Controls;
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Upper'), this.WORLD_WIDTH+this.pipeDist*0,  0, 10, this.pipeWidth, this, true ));
 		this.isPlaying  = false;
 		this.hasStarted = false;
+		this.muted = false;
 
 		var fontSize = Math.min(
 			window.innerWidth / 102.4,
@@ -35,13 +36,7 @@ var Controls = window.Controls;
 		el.css('fontSize', fontSize + 'px');
 
 		this.toggleMute = function() {
-			if(!this.muted) {
-				$('.Mute').show();
-				$('.UnMute').hide();
-			} else {
-				$('.Mute').hide();
-				$('.UnMute').show();
-			}
+
 		};
 
 		// Cache a bound onFrame since we need it each frame.
@@ -112,7 +107,10 @@ var Controls = window.Controls;
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
 		this.hasStarted = false;
-		document.getElementById('GameOverSound').play();
+		console.log(this.muted);
+		if (!this.muted) {
+			document.getElementById('GameOverSound').play();
+		}
 		if (document.getElementById('HiScore').textContent <
 			document.getElementById('Score').textContent) {
 			document.getElementById('HiScore').textContent =

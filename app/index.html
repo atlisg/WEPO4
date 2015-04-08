@@ -62,8 +62,8 @@
                 </button>
             </div>
             <div id="Floor"></div>
-            <div class="Mute"><img width="50px" onclick=" console.log(window.Game);" src="images/mute.png" alt=""></div>
-            <div class="UnMute" hidden><img width="50px" onclick="window.Game.toggleMute;" src="images/unmute.png" alt=""></div>
+            <div class="Mute" hidden><img width="50px" onclick="toggleMute();" src="images/mute.png" alt=""></div>
+            <div class="UnMute"><img width="50px" onclick="toggleMute();" src="images/unmute.png" alt=""></div>
         </div>
 
         <!-- build:js scripts/vendor.js -->
@@ -82,6 +82,7 @@
         <script src="scripts/floor.js"></script>
         <script src="scripts/clouds.js"></script>
         <script src="scripts/wings.js"></script>
+        <script src="scripts/general.js"></script>
         <!-- endbuild -->
 </body>
 </html>
