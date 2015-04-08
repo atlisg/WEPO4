@@ -34,9 +34,10 @@ window.Pipe = (function() {
 			this.hasCounted = false;
 		}
 
-		if (this.game.isPlaying) {
+		if (this.game.hasStarted) {
 			this.pos.x -= delta * SPEED;
 		}
+
 
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');

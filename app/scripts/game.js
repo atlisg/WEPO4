@@ -1,7 +1,7 @@
 
 window.Game = (function() {
 	'use strict';
-
+var Controls = window.Controls;
 	/**
 	 * Main game class.
 	 * @param {Element} el jQuery element containing the game.
@@ -25,6 +25,7 @@ window.Game = (function() {
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe1Upper'), this.WORLD_WIDTH+this.pipeDist*0,  0, 10, this.pipeWidth, this, true ));
 		console.log(this.pipes);
 		this.isPlaying  = false;
+		this.hasStarted = false;
 
 		var fontSize = Math.min(
 			window.innerWidth / 102.4,
@@ -34,6 +35,16 @@ window.Game = (function() {
 		console.log(window.innerHeight / 57.6);
 
 		el.css('fontSize', fontSize + 'px');
+
+		this.toggleMute = function() {
+			if(!this.muted) {
+				$('.Mute').show();
+				$('.UnMute').hide();
+			} else {
+				$('.Mute').hide();
+				$('.UnMute').show();
+			}
+		};
 
 		// Cache a bound onFrame since we need it each frame.
 		this.onFrame = this.onFrame.bind(this);
@@ -101,6 +112,7 @@ window.Game = (function() {
 	 */
 	Game.prototype.gameover = function() {
 		this.isPlaying = false;
+		this.hasStarted = false;
 		document.getElementById('GameOverSound').play();
 		if (document.getElementById('HiScore').textContent <
 			document.getElementById('Score').textContent) {
@@ -115,6 +127,7 @@ window.Game = (function() {
 			.find('.Scoreboard-restart')
 				.one('click', function() {
 					scoreboardEl.removeClass('is-visible');
+					Controls._didJump = false;
 					that.start();
 				});
 	};
@@ -126,6 +139,6 @@ window.Game = (function() {
 	Game.prototype.WORLD_HEIGHT = 57.6;
 	Game.prototype.FLOOR_WIDTH = 7.9;
 	Game.prototype.FLOOR_HEIGHT = 1.5;
-
+	Game.prototype.Muted = false;
 	return Game;
 })();

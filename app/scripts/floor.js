@@ -24,12 +24,15 @@ window.Floor = (function() {
 
 	Floor.prototype.onFrame = function(delta) {
 
-		this.pos.x -= delta * SPEED;
 
-		if (this.pos.x < 0-this.width+0.0755) {
-			this.pos.x = 0;
+		if (this.game.hasStarted) {
+
+			this.pos.x -= delta * SPEED;
+			if (this.pos.x < 0-this.width+0.0755) {
+				this.pos.x = 0;
+			}
+
 		}
-
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
