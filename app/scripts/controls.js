@@ -60,7 +60,7 @@ window.Controls = (function() {
 	Controls.prototype._onKeyUp = function(e) {
 		var keyName;
 		if(e.keyCode !== undefined) {
-			// Remember that this button is down.
+			// Remember that this button is no longer down.
 
 			if (e.keyCode in KEYS) {
 				keyName = KEYS[e.keyCode];
