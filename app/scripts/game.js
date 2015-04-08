@@ -14,6 +14,7 @@ window.Game = (function() {
 		this.player   = new window.Player(this.el.find('.Player'), this);
 		this.pipes = [];
 		this.floor = new window.Floor(this.el.find('#Floor'),0,this.WORLD_HEIGHT-(10.4/2) , 10.4, 3.95, this);
+		this.clouds = new window.Clouds(this.el.find('.Clouds'),0,5,14,this);
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Lower'), this.WORLD_WIDTH+this.pipeDist*3, 35, 30, this.pipeWidth, this, false));
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe4Upper'), this.WORLD_WIDTH+this.pipeDist*3,  0, 15, this.pipeWidth, this, true ));
 		this.pipes.push(new window.Pipe(this.el.find('.Pipe3Lower'), this.WORLD_WIDTH+this.pipeDist*2, 30, 30, this.pipeWidth, this, false));
@@ -67,6 +68,7 @@ window.Game = (function() {
 			}
 		}
 		this.floor.onFrame(delta);
+		this.clouds.onFrame(delta);
 
 		// Request next frame.
 		window.requestAnimationFrame(this.onFrame);
