@@ -40,7 +40,6 @@ window.Player = (function() {
 		}
 		this.jumped = Controls.didJump();
 		if (this.jumped) {this.game.isPlaying = true;}
-		console.log(this.game.isPlaying);
 		if (this.jumped && !this.isJumping) {
 			this.game.isPlaying = true;
 			this.isJumping = true;
