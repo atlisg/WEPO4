@@ -48,9 +48,6 @@ window.Pipe = (function() {
 			if ((this.pos.x < PLAYER_POSITION_X) && !this.hasCounted) {
 				document.getElementById('Score').textContent++;
 				this.hasCounted = true;
-				if (!muted) {
-					document.getElementById('TaDaSound').play();
-				}
 			}
 		}
 	};

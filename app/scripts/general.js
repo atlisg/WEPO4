@@ -1,7 +1,9 @@
 var muted = false;
+
 function toggleMute() {
-	if(!this.muted) {
-		this.muted = true;
+	'use strict';
+	if(!muted) {
+		muted = true;
 		$('.Mute').show();
 		$('.UnMute').hide();
 		var sounds = document.getElementsByClassName('sound');
@@ -10,9 +12,9 @@ function toggleMute() {
 			sounds[i].currentTime = 0;
 		}
 	} else {
-		this.muted = false;
+		muted = false;
 		$('.Mute').hide();
 		$('.UnMute').show();
 		document.getElementById('background-music').play();
 	}
-};
+}
