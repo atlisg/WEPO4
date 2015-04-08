@@ -23,7 +23,6 @@
 	//background: black;
 	-webkit-transform: translateZ(0);
 	-webkit-transform-origin: top left;
-	
 }
 
 #Player-wings-left {
@@ -73,20 +72,9 @@
 .Clouds {
 	position: absolute;
 	background-image: url('/images/cloud.png');
-	-webkit-animation: 5s cloudmove infinite linear;
 	background-size: 14em, auto;
 	width: 200em;
 	height: 14em;
-}
-
-@-webkit-keyframes cloudmove {
-	0%   {
-		-webkit-transform: translateZ(0);
-		/*-webkit-transform: translate(0, 5em);*/
-	} 100% {
-		-webkit-transform: translateZ(0);
-		/*-webkit-transform: translate(-20em, 5em);*/
-	}
 }
 
 .Pipe1Upper {

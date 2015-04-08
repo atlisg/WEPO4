@@ -6,7 +6,7 @@ window.Player = (function() {
 
 	// All these constants are in em's, multiply by 10 pixels
 	// for 1024x576px canvas.
-	var SPEED = 7; // * 10 pixels per second
+	var SPEED = 5.1; // * 10 pixels per second
 	var WIDTH = 5;
 	var HEIGHT = 5;
 	var INITIAL_POSITION_X = 30;
@@ -34,21 +34,24 @@ window.Player = (function() {
 		this.isJumping = false;
 	};
 
-	Player.prototype.onFrame = function() {
-
-		this.pos.y += GRAVITY;
+	Player.prototype.onFrame = function(delta ) {
+		if (this.game.isPlaying) {
+			this.pos.y += GRAVITY;
+		}
 		this.jumped = Controls.didJump();
+		if (this.jumped) {this.game.isPlaying = true;}
+		console.log(this.game.isPlaying);
 		if (this.jumped && !this.isJumping) {
+			this.game.isPlaying = true;
 			this.isJumping = true;
 		} else if (this.jumped && this.isJumping) {
-			SPEED = (this.JUMP_SPEED);
+			SPEED = delta(this.JUMP_SPEED);
 			return;
 		}
 
 		if (this.isJumping) {
 			this.pos.y -= SPEED;
-			console.log(SPEED);
-			if ((SPEED -= 0.5) < 0) {
+			if ((SPEED -= 0.10) < 0) {
 				this.isJumping = false;
 				SPEED = this.JUMP_SPEED;
 			}
