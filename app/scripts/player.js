@@ -63,13 +63,18 @@ window.Player = (function() {
 			this.pos.y -= SPEED;
 			if ((SPEED -= 0.10) < 0) {
 				this.isJumping = false;
-				SPEED = this.JUMP_SPEED;
 			}
+			// Update UI
+			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(-' + SPEED * 15 + 'deg)');
+		} else {
+			if (SPEED < 2)
+				SPEED += 0.5;
+			else
+				SPEED = (this.JUMP_SPEED);
+			this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em) rotate(' + SPEED * 15 + 'deg)');
 		}
 		this.checkCollisionWithBounds();
 
-		// Update UI
-		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
 
 	Player.prototype.checkCollisionWithBounds = function() {

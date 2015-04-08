@@ -11,6 +11,10 @@
 	left: 0;
 	width: 3.1em;
 	height: 4.4em;
+	-webkit-transform: translateZ(0);
+}
+
+#PlayerIMG {
 	z-index: 1;
 }
 
@@ -20,7 +24,6 @@
 	top: 0.4em;
 	height: 0.5em;
 	width: 1em;
-	/*background: black;*/
 	transform: translateZ(0);
 	transform-origin: top left;
 }
