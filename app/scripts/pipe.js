@@ -14,7 +14,6 @@ window.Pipe = (function() {
 		this.game = game;
 		this.pos = { x: initX, y: initY };
 		this.initPos = { x: initX, y: initY };
-		console.log(this.initPos);
 		this.height = height;
 		this.width = width;
 		this.isUpper = upper;
@@ -34,7 +33,11 @@ window.Pipe = (function() {
 			this.pos.x = this.game.WORLD_WIDTH;
 			this.hasCounted = false;
 		}
-		this.pos.x -= delta * SPEED;
+
+		if (this.game.isPlaying) {
+			this.pos.x -= delta * SPEED;
+		}
+
 		// Update UI
 		this.el.css('transform', 'translateZ(0) translate(' + this.pos.x + 'em, ' + this.pos.y + 'em)');
 	};
