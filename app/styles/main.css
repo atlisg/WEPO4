@@ -21,8 +21,8 @@
 	height: 0.5em;
 	width: 1em;
 	/*background: black;*/
-	-webkit-transform: translateZ(0);
-	-webkit-transform-origin: top left;
+	transform: translateZ(0);
+	transform-origin: top left;
 }
 
 #Player-wings-left {
@@ -30,7 +30,7 @@
 	top: 0.4em;
 	z-index: 0;
 	/*animation: 0.4s flap-l alternate infinite;*/
-	-webkit-transform-origin: right;
+	transform-origin: right;
 }
 
 #Player-wings-right {
@@ -38,27 +38,6 @@
 	top: 0.4em;
 	z-index: 0;
 	/*animation: 0.4s flap-r alternate infinite;*/
-}
-
-@-webkit-keyframes flap-r {
-	from {
-		-webkit-transform: translateZ(0);
-		-webkit-transform: rotateY(45deg);
-	}
-	to {
-		-webkit-transform: translateZ(0);
-		-webkit-transform: rotateY(120deg);
-	}
-}
-@-webkit-keyframes flap-l {
-	from {
-		-webkit-transform: translateZ(0);
-		-webkit-transform: rotateY(315deg);
-	}
-	to {
-		-webkit-transform: translateZ(0);
-		-webkit-transform: rotateY(240deg);
-	}
 }
 
 #Floor {
@@ -83,8 +62,8 @@
 	left: 0;
 	width: 6em;
 	height: 10em;
-	background-color: green;
 	border: 0.1em solid rgb(200,200,200);
+	background: linear-gradient(to right, green , lightgreen);
 }
 .Pipe1Lower {
 	position: absolute;
@@ -92,8 +71,8 @@
 	left: 0;
 	width: 6em;
 	height: 30em;
-	background-color: green;
 	border: 0.1em solid rgb(200,200,200);
+	background: linear-gradient(to right, green , lightgreen);
 }
 .Pipe2Upper {
 	position: absolute;
@@ -101,8 +80,8 @@
 	left: 0;
 	width: 6em;
 	height: 20em;
-	background-color: skyblue;
 	border: 0.1em solid rgb(200,200,200);
+	background: linear-gradient(to right, blue , skyblue);
 }
 .Pipe2Lower {
 	position: absolute;
@@ -110,7 +89,7 @@
 	left: 0;
 	width: 6em;
 	height: 30em;
-	background-color: skyblue;
+	background: linear-gradient(to right, blue , skyblue);
 	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe3Upper {
@@ -119,7 +98,7 @@
 	left: 0;
 	width: 6em;
 	height: 10em;
-	background-color: pink;
+	background: linear-gradient(to right, purple , pink);
 	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe3Lower {
@@ -128,7 +107,7 @@
 	left: 0;
 	width: 6em;
 	height: 30em;
-	background-color: pink;
+	background: linear-gradient(to right, purple , pink);
 	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe4Upper {
@@ -137,7 +116,7 @@
 	left: 0;
 	width: 6em;
 	height: 15em;
-	background-color: yellow;
+	background: linear-gradient(to right, orange , yellow);
 	border: 0.1em solid rgb(200,200,200);
 }
 .Pipe4Lower {
@@ -146,7 +125,7 @@
 	left: 0;
 	width: 6em;
 	height: 30em;
-	background-color: yellow;
+	background: linear-gradient(to right, orange , yellow);
 	border: 0.1em solid rgb(200,200,200);
 }
 .Scoreboard {
@@ -159,14 +138,14 @@
 	box-sizing: border-box;
 	background: purple;
 	text-align: center;
-	-webkit-transform: translateZ(0) translate(0, -40em);
-	transition: -webkit-transform 0.5s;
+	transform: translateZ(0) translate(0, -40em);
+	transition: transform 0.5s;
 }
 /**
 * Reset transform to animate it into the correct spot on the screen.
 */
 .Scoreboard.is-visible {
-	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
 	transform: none;
 }
 .Scoreboard-restart {
